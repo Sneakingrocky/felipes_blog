@@ -1,0 +1,67 @@
+
+<header class="hero">
+  <nav>
+    <a href="/" class="logo">
+      <img src="/images/cube.png" alt="Home">
+    </a>
+  </nav> 
+
+  <h1>Code Paradoxan</h1>
+  <h2>Musings on Code</h2>  
+</header>
+
+
+<div class="content-container">
+  <div class="container">
+    <ul>
+      <% page_articles.each_with_index do |article, i| %>
+        <li class="article">
+          <h3 class="article-title"><%= link_to article.title, article %></h3>
+          <div class="author">Felipe</div>
+          <div class="date"><%= article.date.strftime('%b %e %Y') %></div>
+          <div class="article-body">
+            <%= article.summary %>
+          </div>
+          <div class="links">
+            <%= link_to 'Read more…', article %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="clearfix">
+      <a href="#" class="right">Older Posts →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+  <div class="row">
+    <div class="column large-3">
+      <img src="/images/Felipe.png" class="footer-photo">
+    </div>
+    <div class="column large-3">     
+      <h3>About me</h3>  
+      <p>Hey! My name is Felipe and I am a 
+      developer, traveler, and photographer
+      living in London.</p>
+    </div>
+    <section class="social-media column large-3">
+      <h3>Connect with me!</h3> 
+      <a href="http://www.github.com">
+        <img src="/images/github_icon.png"/>
+      </a>
+      <a href="http://www.github.com">
+        <img src="/images/github_icon.png"/>
+      </a>
+      <a href="http://www.github.com">
+        <img src="/images/github_icon.png"/>
+      </a>
+      <a href="http://www.github.com">
+        <img src="/images/github_icon.png"/>
+      </a>
+    </section>
+    </div>    
+  </div>
+</footer>
