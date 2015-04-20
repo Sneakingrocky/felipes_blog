@@ -2,7 +2,7 @@
 
 var SideComments = require('side-comments');
 
-sideComments = new SideComments('#single-article', {}, []);
+sideComments = new SideComments('.article--full', {}, []);
 
 // Listen to "commentPosted", and send a request to your backend to save the comment.
 // More about this event in the "docs" section.
