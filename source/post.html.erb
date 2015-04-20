@@ -1,0 +1,70 @@
+<div class="content-container">
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">
+        <img src="/images/logo.png" alt="Home">
+      </a>
+    </nav>
+
+    <div class="article article--full">
+      <section class="article__header">
+        <h3 class="article__title">Felipe's First Post</h3>
+        <a href="/about"><span class="article__author">Felipe</span></a>
+        &mdash;
+        <span class="article__date">April 10, 2015</span>
+      </section>
+
+      <div class="article__body">
+        <p data-section-id="1" class="commentable-section">As part of my apprenticeship I have to learn a functional language. The functional language of choice here is Clojure. Its a LISP dialect that runs on the JVM. As my background is very heavy on the Java side, some things in Clojure just wouldn’t sit very well. Here are things did not enjoy in my first tour through Clojure.</p>
+
+
+        <h3>I am not a fan of homoiconism</h3>
+
+        <p data-section-id="2" class="commentable-section">Homoiconic means that data and code are representated using the same structures. This allows you to extend the language itself and do all kinds of tricks. Why do I not like it? I can’t tell the difference between data and behaviour. Function calls are just lists and you can pass around lists to make function calls. Vim tries really hard to get some kind of syntax highlighting, but its just too hard. The conciseness of the langauge means that no elements carry special meaning which could be distinguished visually. Coming from Java, where the distinction is crystal clear, my brain is missing visual clues when editiing Clojure.</p>
+
+        <h3>Short and terse</h3>
+
+        <p data-section-id="3" class="commentable-section">The Clojure code I had seen so far gave me the impression that writing short, terse code was prefered over expressive and long names for individual functions that were composed of other methods. In the code I seen so far there were functions, but these had quite a few anonymous function mapping and reducing datastructures and whatnot. To me that is unreadable. In my domain, reduce, apply and map have no meaning. The actual conversions and selections that do happen are interesting, and they should be named. Go ahead and extract all of these little ‘helper’ functions and promote them to real functions.</p>
+
+        <h3>Good example of small functions:</h3>
+
+        <pre>
+  <code>(defn has-draw? [board]
+      (and
+      (not (has-winner? board))
+      (empty? (possible-moves board))))
+
+      (defn possible-moves [board]
+      (set (filter number? board)))
+
+      (defn has-winner? [board]
+      (some line-has-winner? (lines board)))</code>
+        </pre>    
+
+        <h3>Where to place things</h3>
+
+        <p data-section-id="5" class="commentable-section">In OO languges there is a natural place to put things. If your class has too many attributes and you can see that some of those are always used together, break them out into their own class and move the behaviour. From Clojure I did not get that feeling. I did create a couple of namespaces, but they more closely resembled classes in a OO language than packages. Where do you draw the lines between namespaces? Functions map data strucutres all over the place. Collecting functions by what data structures they work on might be a viable approach.</p>
+
+        <h3>Bottoms-up!</h3>
+
+        <p data-section-id="6" class="commentable-section">In Clojure functions can only call functions which have already been declared. This means that your highlevel functions will end up being at the bottomg of the file since they will in turn call the other functions. If you have two mutually recursive calls, you need to use forward declaration to get around the order propblem. From past experiences reading WSDL files, I feel like this is punishing the next reader. Sure, when writing you know what is going on, but opening a file and then starting to scroll down to find the functions that actually matter is a big no-no.</p>
+
+        <h3>My 3 Rules For Readable Clojure</h3>
+
+        <p data-section-id="7" class="commentable-section">As few language constructors per functions as possible Apply, map and reduce have no meaning in your domain. You should definitly use them, but give them a purpose-revealing name. Not having more than one of these per function forces you to name things for what they are.</p>
+
+        <p data-section-id="8" class="commentable-section">Forward-declare everything Like in other programming langauges, important things go to the top. The important functions, that give meaning to a namespace should wander all the way to the top of your file. If you have any degenerate cases of datastructures you use, them place them close to where they are used. They give the reader importnat clues on what things look like.</p>
+
+        <p data-section-id="9" class="commentable-section">Name things as precise as possible Even though we are using a functional language, there are more tools available to us. Use let blocks and and good names for functions and parameters to be as precise and descriptive as possible. Remember, there are no types or other syntactical elements to help clarify what you mean.</p>
+      </div>
+    </div>
+
+    <div class="bottom-navigation">
+      <a href="#" class="left">← Newer Post</a>
+      <a href="#" class="right">Older Post →</a>
+    </div> 
+
+  </div>
+</div>
+
+<%= partial("partials/footer") %>

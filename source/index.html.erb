@@ -1,8 +1,7 @@
-
 <header class="hero">
   <nav>
     <a href="/" class="logo">
-      <img src="/images/cube.png" alt="Home">
+      <img src="/images/logo.png" alt="Home">
     </a>
   </nav> 
 
@@ -10,58 +9,29 @@
   <h2>Musings on Code</h2>  
 </header>
 
-
 <div class="content-container">
   <div class="container">
     <ul>
-      <% page_articles.each_with_index do |article, i| %>
+      <% 6.times do %>
         <li class="article">
-          <h3 class="article-title"><%= link_to article.title, article %></h3>
-          <div class="author">Felipe</div>
-          <div class="date"><%= article.date.strftime('%b %e %Y') %></div>
-          <div class="article-body">
-            <%= article.summary %>
+          <h3 class="article__title"><a href="/post">Felipe's First Post</a></h3>
+          <a href="/about"><span class="article__author">Felipe</span></a>
+          &mdash;
+          <span class="article__date">March 14, 2015</span>
+          <div class="article__body">
+            <p>As part of my apprenticeship I have to learn a functional language. The functional language of choice here is Clojure. Its a LISP dialect that runs on the JVM. As my background is very heavy on the Java side, some things in Clojure just wouldn’t sit very well. Here are things did not enjoy in my first tour through Clojure.</p>
           </div>
-          <div class="links">
-            <%= link_to 'Read more…', article %>
+          <div class="article__links">
+            <a href="/post">Read More...</a>
           </div>
         </li>
       <% end %>
     </ul>
 
-    <div class="clearfix">
+    <div class="bottom-navigation">
       <a href="#" class="right">Older Posts →</a>
     </div>
   </div>
 </div>
 
-<footer>
-  <div class="container">
-  <div class="row">
-    <div class="column large-3">
-      <img src="/images/Felipe.png" class="footer-photo">
-    </div>
-    <div class="column large-3">     
-      <h3>About me</h3>  
-      <p>Hey! My name is Felipe and I am a 
-      developer, traveler, and photographer
-      living in London.</p>
-    </div>
-    <section class="social-media column large-3">
-      <h3>Connect with me!</h3> 
-      <a href="http://www.github.com">
-        <img src="/images/github_icon.png"/>
-      </a>
-      <a href="http://www.github.com">
-        <img src="/images/github_icon.png"/>
-      </a>
-      <a href="http://www.github.com">
-        <img src="/images/github_icon.png"/>
-      </a>
-      <a href="http://www.github.com">
-        <img src="/images/github_icon.png"/>
-      </a>
-    </section>
-    </div>    
-  </div>
-</footer>
+<%= partial("partials/footer") %>

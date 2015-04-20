@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     
     <!-- Always force latest IE rendering engine or request Chrome Frame -->
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
@@ -10,10 +11,13 @@
     <title><%= current_page.data.title || "Felipe's Blog" %></title>
     <script src="//use.typekit.net/yiq0ukg.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
-    <%= stylesheet_link_tag "normalize", "all" %>
-    <%= javascript_include_tag  "all" %>
+    <%= stylesheet_link_tag "normalize", "all", "side-comments.min", "side-comments-default-theme.min" %>
   </head>
   <body>
     <%= yield %>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <%= javascript_include_tag "side-comments.min" %>
+    <%= javascript_include_tag "all" %>
   </body>
 </html>
