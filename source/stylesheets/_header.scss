@@ -1,10 +1,7 @@
 nav {
   @include clearfix;
   padding: 50px;
-
-  @media (max-width: 600px) {
-    text-align: center;
-  }
+  text-align: center;
 }
 
 header.hero {
@@ -72,13 +69,17 @@ header.hero {
     width: 100%;
 
     h1 {
+      padding-top: 100px;
+    }
+
+    nav {
       padding-top: 200px;
     }
   }
 }
 
 .logo {
-  float: left;
+  float: none;
   transition: opacity 0.5s;
 
   &:hover {

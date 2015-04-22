@@ -10,12 +10,15 @@
 
 .article--full {
   transition: transform 0.5s;
+
+  .article__title {
+    margin-top: 0;
+  }
 }
 
 .article__header {
   text-align: center;
   border-bottom: 1px solid rgba(228,229,233,0.96);
-  padding-top: 3rem;
   padding-bottom: 4rem;
   position: relative;
 }
